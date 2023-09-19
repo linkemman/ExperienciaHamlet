@@ -1,9 +1,6 @@
-
-
 //----------------------------------------------------------------------------
 //------------------------------FECHAS----------------------------------------
 //----------------------------------------------------------------------------
-
 
 let agenda = [
   {
@@ -78,8 +75,6 @@ let agenda = [
     horario: ' 20:30',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
-  
-  
 ];
 
 
@@ -99,7 +94,7 @@ for (const evento of agenda) {
 
 // Actualizar la información en el HTML
 if (proximoEvento) {
-  const opcionesDeFormato = { weekday: 'long', month: 'long', day: 'numeric' };
+  const opcionesDeFormato = { weekday: 'long', month: 'long', day: 'numeric' }; // It's unused. Need to remove???
   const idiomaEspanol = { weekday: 'long', month: 'long', day: 'numeric', localeMatcher: 'best fit', timeZone: 'UTC' };
   const fechaFormateada = proximoEvento.fecha.toLocaleDateString('es-ES', idiomaEspanol);
 
@@ -115,8 +110,6 @@ if (proximoEvento) {
 
   const proximaDireccionElement = document.getElementById("descripcion");
   proximaDireccionElement.textContent = proximoEvento.evento.descripcion;
-
-  
 
   // Actualizar el lugar
   const lugarElement = document.getElementById("lugar");
@@ -134,22 +127,20 @@ if (proximoEvento) {
       const mesEvento = fechaEvento.getMonth() + 1; // Los meses son base 0
 
       const entradaHTML = `
-      <div class="entrada-izq">
-        <a href="${evento.entrada}" target="_blank">
-          
-            <h4 class="fecha">${diaEvento}</h4>
-            <h4 class="mes">${getMes(mesEvento)}</h4>
-            <h4 class="hora">${evento.horario}</h4>
-        </a>  
-      </div>
-      <div class="linea"></div>
-    <div class="entrada-der">
-        <a href="${evento.entrada}" target="_blank">
-            <h4 class="lugar">${evento.lugar}</h4>
-            <h4 class="direccion">${evento.descripcion}</h4>
-          
-        </a>  
-    </div>  
+        <div class="entrada-izq">
+          <a href="${evento.entrada}" target="_blank">
+              <h4 class="fecha">${diaEvento}</h4>
+              <h4 class="mes">${getMes(mesEvento)}</h4>
+              <h4 class="hora">${evento.horario}</h4>
+          </a>  
+        </div>
+        <div class="linea"></div>
+        <div class="entrada-der">
+            <a href="${evento.entrada}" target="_blank">
+                <h4 class="lugar">${evento.lugar}</h4>
+                <h4 class="direccion">${evento.descripcion}</h4>
+            </a>  
+        </div>  
       `;
 
       entrada.innerHTML = entradaHTML;
@@ -167,8 +158,6 @@ function getMes(mes) {
 
   return meses[mes - 1];
 }
-
-
 
 //----------------------------------------------------------------------------
 //---------------------------MENU---------------------------------------------
