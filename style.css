@@ -16,12 +16,11 @@ nav {
     display: inline-flex;
     position: fixed;
     z-index: 200;
-    margin: 0 10px;
     align-items:center;
 }
 
 .nav-bar {
-    margin: 0 10px;
+    
     display: inline-flex;
     align-items:center;
 }
@@ -91,7 +90,7 @@ nav {
 
 #menu a {
     text-decoration: none;
-    color: #560eb5;
+    color: rgb(250, 248, 215);
 }
 
 @media screen and (max-width: 480px) {
@@ -345,7 +344,7 @@ h1 {
 }
 
 .direccion {
-    font-size:10px ;
+    font-size:10px;
 }
 
 .hora{
@@ -401,8 +400,8 @@ a:hover {
     color:rgb(165, 148, 126);
     font-family: 'IM Fell English', serif;
     font-size: 12px;
- }
+}
 
- /*--<!--bootstrap-->
+/*--<!--bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">>
 <!--css-->*/
