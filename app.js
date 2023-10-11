@@ -79,6 +79,87 @@ let agenda = [
 
 
 
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//---------------------------MENU---------------------------------------------
+//----------------------------------------------------------------------------
+
+const boton_menu = document.getElementById('boton_menu');
+const menu = document.getElementById('menu');
+
+// Agrega un controlador de eventos al botón
+boton_menu.addEventListener('click', () => {
+  // Alterna la clase 'menu-off' en el menú para mostrar u ocultar
+  menu.classList.toggle('menu-off');
+});
+
+//----------------------------------------------------------------------------
+//---------------------------FUNCIONES DE FECHAS-------------------------------
+//----------------------------------------------------------------------------
+
+// Función para obtener el nombre del día de la semana en español
+function obtenerNombreDiaSemana(dia) {
+  const nombresDias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+  return nombresDias[dia];
+}
+
+// Función para obtener el nombre del mes en español
+function obtenerNombreMes(mes) {
+  const nombresMeses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  return nombresMeses[mes - 1];
+}
+
+// Función para encontrar la próxima fecha más cercana en la agenda
+function encontrarProximaFecha(agenda) {
+  const fechaActual = new Date();
+  let proximaFecha = null;
+
+  for (const evento of agenda) {
+    const fechaEvento = new Date(evento.fecha);
+
+    if (fechaEvento >= fechaActual && (!proximaFecha || fechaEvento < proximaFecha)) {
+      proximaFecha = fechaEvento;
+    }
+  }
+
+  return proximaFecha;
+}
+
+//----------------------------------------------------------------------------
+//---------------------------ACTUALIZAR FECHA MÁS CERCANA----------------------
+//----------------------------------------------------------------------------
+
+// Obtén el elemento h2 con el id "proxima_fecha"
+const proximaFechaElement = document.getElementById("proxima_fecha");
+
+// Encuentra la fecha más cercana
+const fechaMasCercana = encontrarProximaFecha(agenda);
+actualizarProximaFecha(fechaMasCercana);
+
+// Función para actualizar la fecha más cercana en el elemento "proxima_fecha"
+function actualizarProximaFecha(fechaProxima) {
+  if (fechaProxima) {
+    const nombreDiaSemana = obtenerNombreDiaSemana(fechaProxima.getDay() + 1);
+    const diaMes = fechaProxima.getDate() + 1;
+    const nombreMes = obtenerNombreMes(fechaProxima.getMonth() + 1); // Suma 1 para ajustar a la base 1
+
+    const nuevoContenido = `${nombreDiaSemana} ${diaMes} de ${nombreMes}`;
+    proximaFechaElement.textContent = nuevoContenido;
+  } else {
+    proximaFechaElement.textContent = "No hay eventos futuros.";
+  }
+}
+
+//----------------------------------------------------------------------------
+//---------------------------CREAR ENTRADAS------------------------------------
+//----------------------------------------------------------------------------
+
 // Obtener la fecha actual
 const fechaActual = new Date();
 
@@ -95,18 +176,16 @@ function crearEntradas(mesSeleccionado) {
   const contenedorEntradas = document.getElementById("seccion02_entrada");
   contenedorEntradas.innerHTML = ""; // Limpiar el contenido actual
 
-  
-
   for (const evento of agenda) {
     const fechaEvento = new Date(evento.fecha);
     const mesEvento = fechaEvento.getMonth() + 1; // Los meses son base 0
 
     if (mesSeleccionado === 0 || mesSeleccionado === mesEvento || mesSeleccionado === 13) {
-      if (fechaEvento >= fechaActual || mesSeleccionado === 0 || mesSeleccionado === 13) {
+      if (fechaEvento >= fechaActual) {
         const entrada = document.createElement("div");
         entrada.className = "seccion02-entrada";
 
-        const diaEvento = fechaEvento.getDate();
+        const diaEvento = fechaEvento.getDate() + 1;
         const horaEvento = evento.horario;
 
         const entradaHTML = `
@@ -133,6 +212,7 @@ function crearEntradas(mesSeleccionado) {
   }
 }
 
+// Función para obtener el nombre del mes en español
 function getMes(mes) {
   const meses = [
     "Enero", "Febrero", "Marzo", "Abril",
@@ -141,79 +221,4 @@ function getMes(mes) {
   ];
 
   return meses[mes - 1];
-}
-
-//----------------------------------------------------------------------------
-//---------------------------MENU---------------------------------------------
-//----------------------------------------------------------------------------
-
-const boton_menu = document.getElementById('boton_menu');
-const menu = document.getElementById('menu');
-
-// Agrega un controlador de eventos al botón
-boton_menu.addEventListener('click', () => {
-  // Alterna la clase 'menu-off' en el menú para mostrar u ocultar
-  menu.classList.toggle('menu-off');
-});
-
-
-//----------------------------------------------------------------------------
-//---------------------------FILTRO-MES---------------------------------------
-//----------------------------------------------------------------------------
-
-
-function filtrarPorMes() {
-  // Obtenemos el elemento <select> por su id
-  const select = document.getElementById("filtroMes");
-
-  // Obtenemos el valor seleccionado (número del mes) y lo convertimos en un número
-  const mesSeleccionado = parseInt(select.value, 10);
-
-  // Obtenemos el contenedor de entradas
-  const contenedorEntradas = document.getElementById("seccion02_entrada");
-
-  // Limpiamos las entradas actuales en el contenedor
-  contenedorEntradas.innerHTML = "";
-
-  // Obtenemos la fecha actual
-  const fechaActual = new Date();
-
-  // Filtramos las entradas por el mes seleccionado
-  for (const fechaEspectaculo of agenda) {
-     const fechaEspectaculoObj = new Date(fechaEspectaculo.fecha);
-     const mesEvento = fechaEspectaculoObj.getMonth() + 1; // Sumamos 1 porque getMonth() devuelve un valor de 0 a 11
-
-     if (mesSeleccionado === mesEvento) {
-        // Creamos un elemento div para la entrada
-        const entrada = document.createElement("div");
-        entrada.className = "seccion02-entrada";
-
-        // Copiamos y modificamos la estructura HTML de una entrada para este evento
-        const entradaHTML = `
-           <a href="${fechaEspectaculo.entrada}" target="_blank">
-           <div class="entrada-izq">
-           <a href="${evento.entrada}" target="_blank">
-               <h4 class="fecha">${diaEvento}</h4>
-               <h4 class="mes">${getMes(mesEvento)}</h4>
-               <h4 class="hora">${evento.horario}</h4>
-           </a>  
-         </div>
-         <div class="linea"></div>
-         <div class="entrada-der">
-             <a href="${evento.entrada}" target="_blank">
-                 <h4 class="lugar">${evento.lugar}</h4>
-                 <h4 class="direccion">${evento.descripcion}</h4>
-             </a>  
-         </div>  
-       
-           </a>
-        `;
-
-        // Asignamos el HTML generado a la entrada
-        entrada.innerHTML = entradaHTML;
-
-        // Agregamos la entrada al contenedor
-        contenedorEntradas.appendChild(entrada);
-     }
-  }
 }
