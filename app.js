@@ -8,7 +8,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario:" 20:30",
+    horario:" 20:30hs",
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -16,7 +16,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles ",
     descripcion: " Alsina 1475",
-    horario:" 20:30",
+    horario:" 20:30hs",
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -24,7 +24,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Xirgu",
     descripcion: " Chacabuco 875",
-    horario:" 20:30",
+    horario:" 20:30hs",
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -40,7 +40,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario: ' 20:30',
+    horario: ' 20:30hs',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -48,7 +48,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario: ' 20:30',
+    horario: ' 20:30hs',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -56,7 +56,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario: ' 20:30',
+    horario: ' 20:30hs',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -64,7 +64,7 @@ let agenda = [
     evento: " Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario: ' 20:30',
+    horario: ' 20:30hs',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
@@ -72,7 +72,7 @@ let agenda = [
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
-    horario: ' 20:30',
+    horario: ' 20:30hs',
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
 ];
@@ -132,11 +132,12 @@ function encontrarProximaFecha(agenda) {
 }
 
 //----------------------------------------------------------------------------
-//---------------------------ACTUALIZAR FECHA MÁS CERCANA----------------------
+//--------------------------ACTUALIZAR FECHA MÁS CERCANA----------------------
 //----------------------------------------------------------------------------
 
-// Obtén el elemento h2 con el id "proxima_fecha"
+// Obtén los elementos "proxima_fecha" e "informacionFecha"
 const proximaFechaElement = document.getElementById("proxima_fecha");
+const informacionFechaElement = document.getElementById("informacionFecha");
 
 // Encuentra la fecha más cercana
 const fechaMasCercana = encontrarProximaFecha(agenda);
@@ -151,13 +152,25 @@ function actualizarProximaFecha(fechaProxima) {
 
     const nuevoContenido = `${nombreDiaSemana} ${diaMes} de ${nombreMes}`;
     proximaFechaElement.textContent = nuevoContenido;
-  } else {
-    proximaFechaElement.textContent = "No hay eventos futuros.";
+
+    const eventoMasCercano = obtenerEventoMasCercano(fechaProxima);
+
+    if (eventoMasCercano) {
+      const informacion = ` ${eventoMasCercano.lugar} { ${eventoMasCercano.descripcion} } ${eventoMasCercano.horario}`;
+      informacionFechaElement.textContent = informacion;
+    } else {
+      informacionFechaElement.textContent = "No hay eventos futuros.";
+    }
   }
 }
 
+// Función para obtener el evento más cercano en la fecha proporcionada
+function obtenerEventoMasCercano(fecha) {
+  return agenda.find((evento) => new Date(evento.fecha) >= fecha);
+}
+
 //----------------------------------------------------------------------------
-//---------------------------CREAR ENTRADAS------------------------------------
+//--------------------------CREAR ENTRADAS------------------------------------
 //----------------------------------------------------------------------------
 
 // Obtener la fecha actual
