@@ -33,8 +33,9 @@ nav {
 }
 
 .nav-bar img{
-    width: 30px;
-    height: 30px;
+    width:64px;
+    height: 74px;
+    margin-top: 20px;
 }
 
 .nav-item button {
