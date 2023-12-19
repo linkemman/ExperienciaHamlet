@@ -8,17 +8,27 @@ body {
     height: auto;
     background-color: #191816;
 }
+header{
+    transition: top 0.3s ease; /* Agregamos una transición suave a la propiedad top */
+}
 
 nav {
-    height: 32px;
+    height: 80px;
     width: 100%;
-    background-color: #191816;
+    /*background-color: rgba(0,0,0,0.5);*/
     display: inline-flex;
     position: fixed;
     z-index: 200;
     align-items:center;
+    transition: top 0.35s ease; /* Agregamos una transición suave a la propiedad top */
+    
 }
-
+nav:hover {
+    transition: .7s;
+    background-color: rgba(0,0,0,0.5);
+    
+    
+}
 .nav-bar {
     
     display: inline-flex;
@@ -33,8 +43,10 @@ nav {
 }
 
 .nav-bar img{
-    height: 74px;
-    margin-top: 40px;
+    height: 90px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 5px;
 }
 
 .nav-item button {
@@ -47,6 +59,9 @@ nav {
     transition: background-color 0.3s ease;
     width: 30px;
     height: 30px;
+    position: absolute;
+    top: 30px;
+    right: 10px;
 }
 
 .nav-item button:hover {
@@ -67,9 +82,15 @@ nav {
 .nav-ul {
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content:right;
     width: 100%;
     flex-direction: row-reverse;
+    
+}
+.nav-btn{
+    height: 40px;
+    margin: 9px;
+    text-decoration: none;
 }
 
 #menu {
@@ -78,7 +99,7 @@ nav {
     padding: 0;
     margin: 0 auto; 
     text-align: center;
-    width: 400px; 
+    width: 75vw; 
     border-radius: 5px;
     gap: 1rem;
 }
@@ -86,6 +107,7 @@ nav {
 #menu li {
     padding: 10px;
     box-shadow: #191816;
+    padding: 6px 15px;
 }
 
 #menu a {
@@ -100,11 +122,26 @@ nav {
 
     nav {
         flex-direction: column;
+        background-color: rgba(0,0,0,0);
+        align-items: flex-start;
         
+    }
+
+    .nav-item {
+        display: inline;
     }
 
     .nav-item button {
         display: inline;
+        right: 12px;
+
+    }
+
+    .nav-bar img{
+        height: 90px;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 5px;
     }
 
     #menu li {
@@ -114,18 +151,22 @@ nav {
     .menu-off  {
         display: inline-flex !important;
         flex-direction: column;
+        align-items: flex-end;
+            
+
     }
 }
 
 h1 {
     font-family:'IM Fell English', serif;
     color: rgb(250, 248, 215);
-    font-size: 20px;
+    font-size: 16px;
     margin: 0; 
     text-transform: uppercase;
 }
 
 @media screen and (max-width: 768px) {
+
     h1 {
         font-family:'IM Fell English', serif;
         color: rgb(250, 248, 215);
@@ -173,12 +214,12 @@ h1 {
     background-color: rgba(59, 52, 33, 0.5);
 }
 .seccion00-link01 a{
-    font-size: 8px;
+    font-size: 18px;
     text-transform: uppercase;
 }
 
 .seccion00-link02 a{
-    font-size: 8px;
+    font-size: 18px;
     text-transform: uppercase;
 }
 
@@ -209,9 +250,21 @@ h1 {
 }
 
 
+.seccion00 h2{
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18em;
+    
+    color: rgba(94, 8, 8, 0);
+    transition: color 10s ease;
+}
 
-
-
+.seccion00:hover h2 {
+    transition: color 7s ease;
+    color: crimson;
+    
+}
 
 
 /*---------------------SECCION-01---------------------------*/
@@ -281,6 +334,7 @@ h1 {
         font-size: 35px ;
         max-width: 100%;
     }
+    
 }
 
 @media screen and (max-width: 500px) {
@@ -438,16 +492,15 @@ h1 {
 
 
 a {
+    font-family:'IM Fell English', serif;
     text-decoration: none;
     color:antiquewhite ;
-    font-weight: bold;
-    font-size: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
     transition: color 0.3s;
 }
 
-a:hover {
-    color: #FF6600;
-}
+
 
 @media screen and (max-width: 768px) {
     .seccion02 {

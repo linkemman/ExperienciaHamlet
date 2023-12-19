@@ -4,7 +4,7 @@
 
 let agenda = [
   {
-    fecha: "2023-09-06",
+    fecha: "2024-09-06",
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
@@ -12,7 +12,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-09-13",
+    fecha: "2024-09-13",
     evento: "Experiencia Hamlet",
     lugar: "Tacheles ",
     descripcion: " Alsina 1475",
@@ -20,7 +20,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-09-20",
+    fecha: "2024-09-20",
     evento: "Experiencia Hamlet",
     lugar: "Xirgu",
     descripcion: " Chacabuco 875",
@@ -28,7 +28,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-09-27",
+    fecha: "2024-09-27",
     evento: "Experiencia Hamlet",
     lugar: "Tachoto",
     descripcion: " Alsina 1475",
@@ -36,7 +36,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-10-04",
+    fecha: "2024-10-04",
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
@@ -44,7 +44,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-11-08",
+    fecha: "2024-11-08",
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
@@ -52,7 +52,7 @@ let agenda = [
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
   },
   {
-    fecha: "2023-11-15",
+    fecha: "2024-11-15",
     evento: "Experiencia Hamlet",
     lugar: "Tacheles",
     descripcion: " Alsina 1475",
@@ -98,6 +98,25 @@ boton_menu.addEventListener('click', () => {
   // Alterna la clase 'menu-off' en el menú para mostrar u ocultar
   menu.classList.toggle('menu-off');
 });
+
+
+//--------------------------efecto de esconderse al scrolear-----------------
+
+let prevScrollPos = window.scrollY;
+
+window.onscroll = function() {
+  let currentScrollPos = window.scrollY;
+
+  if (prevScrollPos > currentScrollPos) {
+    // Usuario está desplazándose hacia arriba
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    // Usuario está desplazándose hacia abajo
+    document.getElementById("navbar").style.top = "-100px";
+  }
+
+  prevScrollPos = currentScrollPos;
+};
 
 //----------------------------------------------------------------------------
 //---------------------------FUNCIONES DE FECHAS-------------------------------
