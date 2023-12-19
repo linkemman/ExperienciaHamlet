@@ -115,7 +115,7 @@ nav:hover {
     color: rgb(250, 248, 215);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 886px) {
     #menu{
         display:none;
     }
@@ -165,7 +165,7 @@ h1 {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
 
     h1 {
         font-family:'IM Fell English', serif;
@@ -249,12 +249,18 @@ h1 {
     padding: 20px;
 }
 
+.cajaTitulo{
+    display: flex;
+    width: 100%;
+    
+
+}
 
 .seccion00 h2{
     display: flex;
     flex-direction: column-reverse;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 18em;
+    font-size: calc(10.8vw + 6em);
     
     color: rgba(94, 8, 8, 0);
     transition: color 10s ease;
@@ -265,7 +271,16 @@ h1 {
     color: crimson;
     
 }
-
+@media screen and (max-width: 1080px) {
+    .seccion00 h2{
+        font-size: calc(5.8vw + 6em);
+}
+}
+@media screen and (max-width: 700px) {
+    .seccion00 h2{
+        font-size: calc(5.8vw + 3em);
+}
+}
 
 /*---------------------SECCION-01---------------------------*/
 
@@ -295,17 +310,19 @@ h1 {
     margin-top: 100px;
 }
 
-.seccion01-h3_fecha{
-    font-size: 12px;
+.seccion01-h3_fecha {
+    font-size: 1.2em;
     padding-bottom: 2px;
     color: rgb(227, 220, 199);
     z-index: 100;
+    font-family: 'IM Fell English', serif ; 
 }
 
 .seccion01-h3_lugar {
+    margin-top: 30px;
     margin-bottom: 30px;
     margin-right:7px ;
-    font-size: 12px;
+    font-size: 2em;
     padding-bottom: 2px;
     color: rgb(227, 220, 199);
     text-transform: uppercase;
@@ -317,11 +334,12 @@ h1 {
     z-index: 1;
     backdrop-filter: grayscale(100%); 
     border: 1px sold rgba (255,255,255,0.5);
-    animation: animate 5s ease-in-out infinite;   
+    animation: animate 5s ease-in-out infinite;  
+    padding: 1vw 10vw;; 
 }
     
 .seccion01-item h2 {
-    font-size: 25px;
+    font-size: 3em;
     padding: 10px 0px 0px 0px;
     color: #FA9C11;
     text-transform: uppercase;
@@ -331,7 +349,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     .seccion01-item h2 {
-        font-size: 35px ;
+        font-size: 2.5em ;
         max-width: 100%;
     }
     
@@ -339,7 +357,7 @@ h1 {
 
 @media screen and (max-width: 500px) {
     .seccion01-item h2 {
-        font-size: 20px ;
+        font-size: 2em ;
         max-width: 100%;
     }
 }
@@ -357,7 +375,7 @@ h1 {
     color: antiquewhite;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 11px;
+    font-size: 1.1em;
     margin-bottom: 100px;
     
 
@@ -384,7 +402,7 @@ h1 {
 .seccion02-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 32px;
     font-family: 'IM Fell English', serif;
     position: relative;
     padding: 20px;
@@ -412,14 +430,15 @@ h1 {
     font-family: 'IM Fell English', serif;
     border: 2px solid #FA9C11;
     border-radius: 5px;
-    font-size: 10px;
-    width: 100px;
+    font-size: 1.3em;
+    width: 176px;
     cursor: pointer;
 }
 
 .select-container option {
     background-color: #000000;
     color: #FA9C11;
+    font-size: 1.3em;
 }
 
 .seccion02-entrada {
@@ -448,26 +467,27 @@ h1 {
 }
 
 .fecha{
-    font-size: 36px;
+    font-size: 3.5em;
 }
 
 .mes{
-    font-size: 10px;
-    margin-top: -5px;
+    font-size: 1.2em;
+    
 }
 
 .lugar {
-    font-size: 16px;
+    font-size: 2em;
     text-transform: uppercase;
 }
 
 .direccion {
-    font-size:10px;
+    font-size:1.4em;
 }
 
 .hora{
-    font-size: 16px;
+    font-size: 1.2em;
     margin-top: 7px;
+    font-family: sans-serif;
 }
 
 .entrada-izq{
@@ -520,9 +540,12 @@ a {
     padding: 28px;
     color:rgb(165, 148, 126);
     font-family: 'IM Fell English', serif;
-    font-size: 12px;
+    font-size: 1.6em;
 }
-
+.seccion03 p {
+    background-color: rgba(0,0,0,0.5);
+    display: inline;
+}
 /*--<!--bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">>
 <!--css-->*/

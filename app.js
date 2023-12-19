@@ -22,7 +22,7 @@ let agenda = [
   {
     fecha: "2024-09-20",
     evento: "Experiencia Hamlet",
-    lugar: "Xirgu",
+    lugar: "Tacheles",
     descripcion: " Chacabuco 875",
     horario:" 20:30hs",
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
@@ -30,7 +30,7 @@ let agenda = [
   {
     fecha: "2024-09-27",
     evento: "Experiencia Hamlet",
-    lugar: "Tachoto",
+    lugar: "Tacheles",
     descripcion: " Alsina 1475",
     horario:" 20:30hs",
     entrada:"https://publico.alternativateatral.com/entradas81556-experiencia-hamlet?o=14"
