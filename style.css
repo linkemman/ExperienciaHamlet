@@ -106,6 +106,8 @@ nav:hover {
     width: 75vw; 
     border-radius: 5px;
     gap: 1rem;
+    text-decoration: none;
+    
 
 }
 
@@ -113,11 +115,14 @@ nav:hover {
     padding: 10px;
     box-shadow: #191816;
     padding: 6px 15px;
+    text-decoration: none;
 }
 
 #menu a {
+    
     text-decoration: none;
     color: rgb(250, 248, 215);
+    
 }
 
 @media screen and (max-width: 886px) {
@@ -127,14 +132,23 @@ nav:hover {
         list-style-type: none;
         
         padding: 0;
-        margin: 0 50vw; 
+        margin: 0vw 62vw; 
         text-align: center;
-        width: 45vw; 
+        width: 35vw; 
         border-radius: 5px;
         gap: 1rem;
-        background-color: rgba(0,0,0,);
+        background-color: rgba(0,0,0);
     }
 
+    @media screen and (max-width: 400px) {
+        #menu{
+            margin: 0vw 48vw;
+            width: 45vw; 
+            
+        }
+
+    }
+    
     nav {
         flex-direction: column;
         background-color: rgba(0,0,0,0);
@@ -178,6 +192,7 @@ h1 {
     font-size: 16px;
     margin: 0; 
     text-transform: uppercase;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 500px) {
@@ -339,6 +354,7 @@ h1 {
     justify-content: center;
     align-items: center;
     z-index: 100;
+    text-decoration: none;
 }
 
 .seccion01-fecha{
@@ -400,6 +416,8 @@ h1 {
     text-decoration: none;
     color: rgb(227, 220, 199);
     text-transform: uppercase;
+    text-decoration: none;
+    
 }
 
 
@@ -521,6 +539,7 @@ h1 {
     padding: 0;
     flex-direction: column;
     color: #FA9C11;
+    text-decoration: none;
 }
 
 .fecha{
