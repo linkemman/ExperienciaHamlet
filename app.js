@@ -113,6 +113,7 @@ window.onscroll = function() {
   } else {
     // Usuario está desplazándose hacia abajo
     document.getElementById("navbar").style.top = "-100px";
+    
   }
 
   prevScrollPos = currentScrollPos;

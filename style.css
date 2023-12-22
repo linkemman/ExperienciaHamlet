@@ -7,7 +7,11 @@ body {
     padding: 0;
     height: auto;
     background-color: #191816;
+    overflow-x: hidden;
 }
+
+
+
 header{
     transition: top 0.3s ease; /* Agregamos una transición suave a la propiedad top */
 }
@@ -102,6 +106,7 @@ nav:hover {
     width: 75vw; 
     border-radius: 5px;
     gap: 1rem;
+
 }
 
 #menu li {
@@ -118,6 +123,16 @@ nav:hover {
 @media screen and (max-width: 886px) {
     #menu{
         display:none;
+        flex-direction: column-reverse;
+        list-style-type: none;
+        
+        padding: 0;
+        margin: 0 50vw; 
+        text-align: center;
+        width: 45vw; 
+        border-radius: 5px;
+        gap: 1rem;
+        background-color: rgba(0,0,0,);
     }
 
     nav {
@@ -261,7 +276,6 @@ h1 {
     flex-direction: column-reverse;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: calc(10.8vw + 6em);
-    
     color: rgba(94, 8, 8, 0);
     transition: color 10s ease;
 }
@@ -274,13 +288,34 @@ h1 {
 @media screen and (max-width: 1080px) {
     .seccion00 h2{
         font-size: calc(5.8vw + 6em);
+        
 }
 }
 @media screen and (max-width: 700px) {
+    .seccion00 {
+        display: flex;
+        flex-direction:column-reverse;
+        top: 2vh;
+    }
     .seccion00 h2{
         font-size: calc(5.8vw + 3em);
+        color: crimson;
 }
 }
+@media screen and (max-width: 330px) {
+    .seccion00 {
+        top: 5vh;
+    }
+    
+    .seccion00 h2 {
+        font-size: calc(5.5vw + 2em);
+        color: crimson;
+        margin: 5px 0; /* Agrega un margen para evitar desbordamiento */
+            
+    }
+}
+
+
 
 /*---------------------SECCION-01---------------------------*/
 
@@ -387,6 +422,22 @@ h1 {
     }
 }
 
+
+@media screen and (max-width: 330px) {
+    .seccion01 {
+        padding-top: 0; /* Ajusta el padding */
+    }
+
+    .seccion01-item h2 {
+        font-size: 2em; /* Ajusta el tamaño de la fuente */
+        max-width: 100%; /* Ajusta el ancho máximo */
+    }
+
+    .seccion00 {
+        top: 10vh; /* Ajusta el posicionamiento */
+    }
+}
+
 /*-------------------------SECCION-02--------------------------------------*/
 
 .seccion02{
@@ -396,20 +447,26 @@ h1 {
     background-position: center center;
     position: relative;
     padding-top: 10px;
+    
 }
 
 
 .seccion02-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 32px;
     font-family: 'IM Fell English', serif;
     position: relative;
     padding: 20px;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
 }
 .Contenedor-entrada {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 20px;
     font-family: 'IM Fell English', serif;
     position: relative;
@@ -529,6 +586,33 @@ a {
     }
     
     
+}
+@media screen and (max-width: 330px) {
+    .seccion02-entrada {
+        font-size: 0.8em; /* Ajusta el tamaño de la fuente según sea necesario */
+        padding: 5px; /* Ajusta el relleno */
+        margin: 5px auto; /* Ajusta el margen */
+    }
+
+    .fecha {
+        font-size: 2em; /* Ajusta el tamaño de la fecha */
+    }
+
+    .mes {
+        font-size: 0.5em; /* Ajusta el tamaño del mes */
+    }
+
+    .lugar {
+        font-size: 1em; /* Ajusta el tamaño del lugar */
+    }
+
+    .direccion {
+        font-size: 0.9em; /* Ajusta el tamaño de la dirección */
+    }
+
+    .hora {
+        font-size: 0.5em; /* Ajusta el tamaño de la hora */
+    }
 }
 
 
